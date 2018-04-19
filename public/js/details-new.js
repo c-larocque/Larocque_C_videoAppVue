@@ -73,10 +73,23 @@ var myVideoApp = {
         },
 
         getReviews() {
+          debugger;
           let movieId = document.querySelector('.movId').textContent;
 
-          axios.get('/api', {
-            id : movieId
+          // fetch(`/api/${movieId}`)
+          //   .then((resp) => resp.json())
+          //   .then(data => {
+          //     console.log(data);
+          //     data.forEach(review => this.reviews.push(review));
+          //   })
+          // .catch((err) => {
+          //   console.log(err);
+          // });
+
+          axios.get(`/api/movie`, {
+            params: {
+              id : movieId
+            }            
           })
             .then((response) => {
               console.log(response);

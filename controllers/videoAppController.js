@@ -121,14 +121,14 @@ exports.get_one_movie = (req, res) => {
 };
 
 exports.get_all_reviews = (req, res) => {
-  console.log('hit get all reviews');
+  console.log(`hit get all reviews; id: ${req.query.id}`);
 
   connect.getConnection((err, connection) => {
     if (err) {
       return console.log(err.message);
     }
 
-    let query = `SELECT * FROM tbl_comments WHERE comments_movie = "${req.params.id}"`;
+    let query = `SELECT * FROM tbl_comments WHERE comments_movie="${req.query.id}"`;
 
     connect.query(query, (err, rows) => {
       connection.release();
