@@ -76,7 +76,7 @@ var myVideoApp = {
           let movieId = document.querySelector('.movId').textContent;
 
           axios.get('/api', {
-            id : movieId,
+            id : movieId
           })
             .then((response) => {
               console.log(response);
