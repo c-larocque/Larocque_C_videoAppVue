@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var xhb = require('express-handlebars');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 var details = require('./routes/details');
 var adults = require('./routes/adults');
 var kids = require('./routes/kids');
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+//app.use('/users', users);
 app.use('/details', details);
 app.use('/adults', adults);
 app.use('/kids', kids);
