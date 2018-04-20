@@ -1,56 +1,36 @@
 <section id="appDetails">
-<video controls>
-  <source src="/video/{{ moviesrc }}" type="video/mp4">
-</video>
-
-<section class="video-details">
-  <h2>{{movieData.movies_title}}</h2>
-  <!-- <div class="video-socials">
-    <img src="/images/facebook.svg" alt="Facebook icon">
-    <img src="/images/twitter.svg" alt="Twitter icon">
-    <img src="/images/instagram.svg" alt="Instagram icon">
-  </div> -->
-  <div class="info">
-    <p>{{movieData.movies_year}}</p>
-    <a href="https://twitter.com" class="twitter-mention-button" data-show-count="false">Tweet</a>
-    <div class="fb-like" data-href="https://github.com/c-larocque/Larocque_C_videoAppVue" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-  </div>
-  <div class="storyline">
-    <h3>STORYLINE:</h3>
-    <p>{{movieData.movies_storyline}}</p>
-  </div>
-  <div class="reviews">
-    <h3>REVIEWS:</h3>
-    <!-- <p>There are no reviews. Be the first and submit one below.</p> -->
-    <article class="comments reviews" v-if="reviews.length > 0">
-        <dir v-for="review in reviews" :key="review.id">
-          <review-stars :value="review.comments_rating" :disabled="true"></review-stars>
-          <i class="post-date">${review.comments_date}</i>
-          <p>
-            ${review.comments_copy}
-          </p>
-        </dir>
-
-      </article>
-  </div>
-
-  <form>
-    <!-- add our own reviews -->
-    <label>Add a Review:</label>
-    <span class="hidden movId">{{movie}}</span>
-    <!-- <input type="range" name="myRange" id="myRange" min="0" max="5" step="1" v-model="numStars"> -->
-    <review-stars v-model="numStars" :disabled="false"></review-stars>
-    <!-- <label for="myRange">${numStars} -Star Review</label> -->
-    <textarea name="review" id="review" placeholder="Add a comment or write a review here." v-model="review"></textarea>
-    <input type="submit" name="submit" value="Submit Your Review" v-on:click="addReview">
-
-  </form>
-  <!-- <form class="" action="index.html" method="post">
-    <label for="">Write a comment:</label>
-    <textarea type="text" name="" placeholder="Add a comment or write a review."></textarea>
-    <input type="submit" name="submit" value="Add Comment">
-  </form> -->
-
-
-</section>
+  <video controls autoplay>
+    <source src="/video/{{ moviesrc }}" type="video/mp4">
+  </video>
+  <section class="video-details">
+    <h2>{{movieData.movies_title}}</h2>
+    <div class="info">
+      <p>{{movieData.movies_year}}</p>
+      <a href="https://twitter.com" class="twitter-mention-button" data-show-count="false">Tweet</a>
+      <div class="fb-like" data-href="https://github.com/c-larocque/Larocque_C_videoAppVue" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    </div>
+    <div class="storyline">
+      <h3>STORYLINE:</h3>
+      <p>{{movieData.movies_storyline}}</p>
+    </div>
+    <div class="reviews">
+      <h3>REVIEWS:</h3>
+      <div class="reviews" v-if="reviews.length > 0">
+          <dir v-for="review in reviews" :key="review.id">
+            <review-stars :value="review.comments_rating" :disabled="true"></review-stars>
+            <i class="post-date">${review.comments_date}</i>
+            <p>
+              ${review.comments_copy}
+            </p>
+          </dir>
+        </div>
+    </div>
+    <form>
+      <label>Add a Review:</label>
+      <span class="hidden movId">{{movie}}</span>
+      <review-stars v-model="numStars" :disabled="false"></review-stars>
+      <textarea name="review" id="review" placeholder="Add a comment or write a review here." v-model="review"></textarea>
+      <input type="submit" name="submit" value="Submit Your Review" v-on:click="addReview">
+    </form>
+  </section>
 </section>

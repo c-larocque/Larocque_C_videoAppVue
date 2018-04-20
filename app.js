@@ -8,9 +8,9 @@ var xhb = require('express-handlebars');
 
 var index = require('./routes/index');
 //var users = require('./routes/users');
-var details = require('./routes/details');
-var adults = require('./routes/adults');
-var kids = require('./routes/kids');
+// var details = require('./routes/details');
+// var adults = require('./routes/adults');
+// var kids = require('./routes/kids');
 
 var app = express();
 
@@ -26,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 //app.use('/users', users);
-app.use('/details', details);
-app.use('/adults', adults);
-app.use('/kids', kids);
+// app.use('/details', details);
+// app.use('/adults', adults);
+// app.use('/kids', kids);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
