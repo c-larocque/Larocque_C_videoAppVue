@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>NEH Lab</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <title>WatchNow - Watch new movies now!</title>
   </head>
   <body>
 
@@ -18,10 +20,10 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/adults#movies">ALL MOVIES</a>
+              <a class="nav-link" href="/adults">ALL MOVIES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/kids#movies">KIDS MOVIES</a>
+              <a class="nav-link" href="/kids">KIDS MOVIES</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#favourites">FAVOURITES</a>
@@ -55,6 +57,23 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      var appData = {
+        movies : {{{ data }}}
+      }
+    </script>
+    {{#if adultpage}}
+    	<script src="/js/adults.js"></script>
+    {{/if}}
 
+    {{#if kidspage}}
+    	<script src="/js/kids.js"></script>
+    {{/if}}
+
+    {{#if detailspage}}
+    	<script src="/js/details.js"></script>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <script src="/js/socials.js"></script>
+    {{/if}}
   </body>
 </html>

@@ -1,8 +1,8 @@
-<div class="main-body">
-  <h1 id="kids-welcome">Welcome to the <span>{{ title }}</span> video selection</h1>
+<div class="main-body" id="appKids">
+  <h1 id="kids-welcome">Welcome to the <span>${title}</span> video selection</h1>
 <section class="videos-con" id="movies">
   <div class="heading row">
-    <h2 class="col-sm-12 col-md-3">{{ moviesHeading }}</h2>
+    <h2 class="col-sm-12 col-md-3">${genresHeading}</h2>
     <div class="dropdown-con col-sm-12 col-md-1 offset-md-6">
       <button class="dropdown-button">Genre:</button>
       <div class="dropdown-info">
@@ -25,22 +25,23 @@
     </div>
   </div>
 
-  <div class="video-posters row">
-    <ul>
-      {{#each moviesData}}
-        <li class="col-sm-6 col-md-4 col-lg-3">
-            <a href="/details/{{ movies_trailer }}">
-              <img src="/images/{{ movies_cover }}" alt="{{ movies_title }}">
-            </a>
+  <section class="genre-lists video-posters row" v-for="genre in genres">
+    <div v-if="genre.movies.length > 0">
+      <h3 class="genre-name heading">${ genre.name }</h3>
+      <ul class="genre-item">
+        <li class="movie-list col-sm-6 col-md-4 col-lg-3" v-for="movie in genre.movies">
+          <a :href="'/movies/' + movie.movies_id + '/' + movie.movies_trailer">
+            <img class="movie-thumb" :src="'/images/' + movie.movies_cover" :alt="movie.movies_title">
+          </a>
         </li>
-      {{/each}}
-    </ul>
-  </div>
+      </ul>
+    </div>
+  </section>
 </section>
 
 <section class="videos-con" id="favourites">
   <div class="heading row">
-    <h2 class="col-sm-12 col-md-3">{{ favsHeading }}</h2>
+    <h2 class="col-sm-12 col-md-3">${ favsHeading }</h2>
     <div class="dropdown-con col-sm-12 col-md-1 offset-md-6">
       <button class="dropdown-button">Genre:</button>
       <div class="dropdown-info">
@@ -64,7 +65,7 @@
   </div>
 
   <div class="video-posters row">
-    <p>{{ message }}</p>
+    <p>${ message }</p>
   </div>
 </section>
 

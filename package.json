@@ -1,5 +1,5 @@
 {
-  "name": "larocque-carolyn-neh",
+  "name": "Larocque_C_videoAppVue",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "grunt": "^1.0.2",
+    "grunt-contrib-uglify-es": "^3.3.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.1.0"
   }
