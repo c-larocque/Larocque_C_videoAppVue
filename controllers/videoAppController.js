@@ -2,30 +2,17 @@
 var config = require('../config');
 const connect = require('../utils/sqlConnect');
 
-// exports.get_users = (req, res) => {
-//   console.log('hit get users');
-//
-//   connect.getConnection((err, connection) => {
-//     if (err) {
-//       return console.log(err.message);
-//     }
-//     let query = `SELECT * FROM tbl_movies`;
-//
-//     connect.query(query, (err, rows) => {
-//       connection.release();
-//
-//       if (err) {
-//         return console.log(err.message);
-//       }
-//
-//       console.log(rows);
-//
-//       res.render('index', {
-//         moviesData: result
-//       });
-//     })
-//   })
-// };
+exports.get_users = (req, res) => {
+  console.log('hit get users');
+
+  connect.getConnection((err, connection) => {
+    if (err) {
+      return console.log(err.message);
+    }
+
+    res.render('index');
+  })
+};
 
 exports.get_all_adults = (req, res) => {
   console.log('hit get all movies');
@@ -94,7 +81,7 @@ exports.get_one_movie = (req, res) => {
     }
     //let query = `SELECT * FROM tbl_movies m, tbl_genre g, tbl_mov_genre mg WHERE m.movies_id = mg.movies_id AND g.genre_id = mg.genre_id`;
 
-    let query = `SELECT movies_id, movies_title, movies_storyline FROM tbl_movies WHERE movies_id = "${req.params.id}"`;
+    let query = `SELECT movies_id, movies_title, movies_storyline, movies_year FROM tbl_movies WHERE movies_id = "${req.params.id}"`;
 
     //let query = `SELECT * FROM tbl_comments WHERE comments_movie = "${req.params.id}"`;
 
@@ -121,7 +108,7 @@ exports.get_one_movie = (req, res) => {
 };
 
 exports.get_all_reviews = (req, res) => {
-  console.log('hit get all reviews');
+  console.log(`hit get all reviews; id: ${req.params.id}`);
 
   connect.getConnection((err, connection) => {
     if (err) {

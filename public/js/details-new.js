@@ -27,10 +27,6 @@ var myVideoApp = {
     data.forEach(review => myVideoApp.vm.reviews.push(review));
   },
 
-  // getReviews(data) {
-  //   data.forEach(review => myVideoApp.vm.reviews.push(review));
-  // }
-
   vm : new Vue({
     delimiters : ["${", "}"],
 
@@ -75,15 +71,29 @@ var myVideoApp = {
         getReviews() {
           let movieId = document.querySelector('.movId').textContent;
 
-          axios.get('/api', {
-            id : movieId
-          })
-            .then((response) => {
-              console.log(response);
+          fetch(`/api/${movieId}`)
+            .then((resp) => resp.json())
+            .then(data => {
+              console.log(data);
+              data.forEach(review => this.reviews.push(review));
             })
-            .catch((error) => {
-              console.log(error);
-            });
+          .catch((err) => {
+            console.log(err);
+          });
+
+          // axios.get(`/api/movie`, {
+          //   params : {
+          //     id : movieId
+          //   }
+          // })
+          //   .then((data) => {
+          //     console.log(data);
+          //     data.forEach(review => this.reviews.push(review));
+          //   })
+          //   .catch((error) => {
+          //     console.log(error);
+          //   });
+
         }
       }
 

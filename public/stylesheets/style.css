@@ -132,6 +132,10 @@ footer {
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 30px; }
+  .videos-con h3 {
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: 300; }
   .videos-con .video-posters li {
     width: 250px;
     height: 150px;

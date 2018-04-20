@@ -5,14 +5,15 @@
 
 <section class="video-details">
   <h2>{{movieData.movies_title}}</h2>
-  <div class="video-socials">
+  <!-- <div class="video-socials">
     <img src="/images/facebook.svg" alt="Facebook icon">
     <img src="/images/twitter.svg" alt="Twitter icon">
     <img src="/images/instagram.svg" alt="Instagram icon">
-  </div>
+  </div> -->
   <div class="info">
     <p>{{movieData.movies_year}}</p>
-    <p class="rating">{{ rating }}</p>
+    <a href="https://twitter.com" class="twitter-mention-button" data-show-count="false">Tweet</a>
+    <div class="fb-like" data-href="https://github.com/c-larocque/Larocque_C_videoAppVue" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
   </div>
   <div class="storyline">
     <h3>STORYLINE:</h3>
@@ -20,37 +21,35 @@
   </div>
   <div class="reviews">
     <h3>REVIEWS:</h3>
-    <p>There are no reviews. Be the first and submit one below.</p>
+    <!-- <p>There are no reviews. Be the first and submit one below.</p> -->
+    <article class="comments reviews" v-if="reviews.length > 0">
+        <dir v-for="review in reviews" :key="review.id">
+          <review-stars :value="review.comments_rating" :disabled="true"></review-stars>
+          <i class="post-date">${review.comments_date}</i>
+          <p>
+            ${review.comments_copy}
+          </p>
+        </dir>
+
+      </article>
   </div>
-  <aside class="add-comment" :class="{ floatRight : reviews.length > 0 }">
+
+  <form>
     <!-- add our own reviews -->
-    <h4 class="review-heading">Add a Review</h4>
+    <label>Add a Review:</label>
     <span class="hidden movId">{{movie}}</span>
     <!-- <input type="range" name="myRange" id="myRange" min="0" max="5" step="1" v-model="numStars"> -->
     <review-stars v-model="numStars" :disabled="false"></review-stars>
     <!-- <label for="myRange">${numStars} -Star Review</label> -->
-    <textarea name="review" id="review" placeholder="What did you think?" v-model="review"></textarea>
+    <textarea name="review" id="review" placeholder="Add a comment or write a review here." v-model="review"></textarea>
     <input type="submit" name="submit" value="Submit Your Review" v-on:click="addReview">
 
-  </aside>
+  </form>
   <!-- <form class="" action="index.html" method="post">
     <label for="">Write a comment:</label>
     <textarea type="text" name="" placeholder="Add a comment or write a review."></textarea>
     <input type="submit" name="submit" value="Add Comment">
   </form> -->
-
-  <article class="comments reviews" v-if="reviews.length > 0">
-  		<dir v-for="review in reviews" :key="review.id">
-  		<review-stars :value="review.comments_rating" :disabled="true"></review-stars>
-  			<i class="post-date">${review.comments_date}</i>
-  			<p>
-  				${review.comments_copy}
-  			</p>
-  		</dir>
-
-  	</article>
-
-    <!-- aside => add our own reviews -->
 
 
 </section>

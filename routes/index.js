@@ -1,13 +1,17 @@
 var express = require('express');
 var videoController = require('../controllers/videoAppController');
 var router = express.Router();
+var bodyParser = require('body-parser');
 // var connect = require('../utils/sqlConnect');
 
-//router.get('/', videoController.get_users);
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended : false}));
+
+router.get('/', videoController.get_users);
 router.get('/adults', videoController.get_all_adults);
 router.get('/kids', videoController.get_all_kids);
 router.get('/movies/:id/:movie', videoController.get_one_movie);
-router.get('/api', videoController.get_all_reviews);
+router.get('/api/:id', videoController.get_all_reviews);
 router.post('/api', videoController.post_new_review);
 
 // router.get('/', function(req, res, next) {

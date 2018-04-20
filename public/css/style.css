@@ -12,10 +12,13 @@ body {
 .container-fluid {
   padding: 0; }
 
+.hidden {
+  display: none; }
+
 .navbar {
   min-height: 10vh; }
   .navbar img {
-    width: 100% \9; }
+    width: 100% /9; }
   .navbar #navbarText {
     margin-left: 50px; }
     .navbar #navbarText .nav-item {
@@ -126,24 +129,34 @@ footer {
 .videos-con {
   max-width: 1500px;
   margin: 35px auto;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #999;
   padding-bottom: 20px; }
   .videos-con h2 {
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 30px; }
-  .videos-con .video-posters li {
-    width: 250px;
-    height: 150px;
-    overflow: hidden;
-    float: left; }
-  .videos-con .video-posters img {
-    width: 250px;
-    margin-top: -50%; }
-  .videos-con .video-posters p {
-    font-weight: 300;
-    margin-left: 15px;
-    color: #999; }
+  .videos-con h3 {
+    font-size: 14px;
+    margin: 0 0 20px 20px;
+    font-weight: 600;
+    text-transform: uppercase; }
+  .videos-con .video-posters {
+    padding: 30px 0;
+    border-bottom: 1px solid #e4e4e4; }
+    .videos-con .video-posters:last-child {
+      border-bottom: none; }
+    .videos-con .video-posters li {
+      max-width: 250px;
+      height: 150px;
+      overflow: hidden;
+      float: left; }
+    .videos-con .video-posters img {
+      width: 250px;
+      margin-top: -50%; }
+    .videos-con .video-posters p {
+      font-weight: 300;
+      margin-left: 15px;
+      color: #999; }
 
 #kids-welcome {
   background-color: #efac14; }
@@ -189,9 +202,11 @@ video {
     padding: 20px; }
     .video-details form label {
       text-transform: uppercase;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       margin-bottom: 20px; }
+    .video-details form .star-rating-star {
+      font-size: 22px !important; }
     .video-details form textarea {
       clear: left;
       height: 75px;
@@ -212,5 +227,48 @@ video {
         background-color: #dbdbdb;
         color: #333;
         font-weight: 600; }
+
+.comments {
+  display: inline-block; }
+  .comments > div {
+    padding: 0 1em;
+    margin-bottom: 1.75em; }
+  .comments dir {
+    padding: 20px; }
+    .comments dir:first-child {
+      display: none; }
+
+#movie > video {
+  margin-bottom: 1.5em; }
+
+.star-rating-checkbox {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0; }
+
+.star-rating-star {
+  display: inline-block;
+  padding: 1px;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 2.25em;
+  color: #ABABAB;
+  -webkit-transition: color .2s ease-out;
+  transition: color .2s ease-out;
+  margin-bottom: 0; }
+
+.star-rating-star:hover {
+  cursor: pointer; }
+
+.star-rating-star.is-selected {
+  color: #FFD700; }
+
+.star-rating-star.is-disabled:hover {
+  cursor: default; }
 
 /*# sourceMappingURL=style.css.map */

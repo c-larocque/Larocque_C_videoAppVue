@@ -30,4 +30,4 @@ const myApp = {
   })
 }
 
-myApp.movieGenres(appData.movies, ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama", "Family", "Fantasy", "Historical", "Horror", "Musical", "Romance", "Science Fiction", "Sport", "War", "Western"]);
+myApp.movieGenres(appData.movies, ["Action", "Adventure", "Comedy", "Drama", "Family", "Fantasy", "Historical", "Musical", "Romance", "Science Fiction", "Sport", "War"]);

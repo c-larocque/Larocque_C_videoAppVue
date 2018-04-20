@@ -27,7 +27,7 @@
 
   <section class="video-posters row" v-for="genre in genres">
     <div v-if="genre.movies.length > 0">
-      <h2 class="heading">${ genre.name }</h2>
+      <h3 class="heading">${ genre.name }</h3>
       <ul>
         <li class="col-sm-6 col-md-4 col-lg-3" v-for="movie in genre.movies">
           <a :href="'/movies/' + movie.movies_id + '/' + movie.movies_trailer">
